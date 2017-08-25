@@ -45,7 +45,7 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);      // 指定使用的 OpenGL 子版本号为 3
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 指定 OpenGL 为 Core-profile 模式
 #ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);    // 指定 OpenGL 是否向前兼容
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);    // 指定 OpenGL 是否向前兼容
 #endif
     
     // 创建窗体

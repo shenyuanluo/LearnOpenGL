@@ -1,2 +1,4 @@
 # LearnOpenGL
-记录学习[https://learnopengl.com/](https://learnopengl.com/)教程的 `Demo`。
+> 记录 `OpenGL` 学习历程，印记 `OpenGL` **Demo**。
+
+教程来源：[https://learnopengl.com/](https://learnopengl.com/)。

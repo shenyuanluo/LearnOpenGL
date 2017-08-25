@@ -166,12 +166,12 @@ int main()
     };
     
     // 声明一个引用 顶点缓存对象 ID
-    GLuint VBO  /* 顶点缓冲对象（Vertex Buffer Object） */;
     GLuint VAO  /* 顶点数组对象（Vertex Array Object） */;
+    GLuint VBO  /* 顶点缓冲对象（Vertex Buffer Object） */;
     GLuint EBO  /* 索引缓冲对象（Element Buffer Object） */;
     // 生成一个顶点数组对象(可包含：VBO，EBO，VertexAttribPointer )
     glGenVertexArrays(1, &VAO);
-    // 生成一个 定点缓存对象
+    // 生成一个 顶点缓存对象
     glGenBuffers(1, &VBO);
     // 生成一个 索引缓存对象
     glGenBuffers(1, &EBO);
@@ -219,7 +219,7 @@ int main()
         //
         glBindVertexArray(VAO);
 //        glDrawArrays(GL_TRIANGLES, 0, 3);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void *)0);
         
         // 交换缓存
         glfwSwapBuffers(window);
