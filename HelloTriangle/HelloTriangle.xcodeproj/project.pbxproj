@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140DB1AE1F599F9500BA7599 /* HelloTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 140DB1AC1F599F9500BA7599 /* HelloTriangle.cpp */; };
 		149D7D311F4002CE00753127 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 149D7D301F4002CE00753127 /* main.cpp */; };
 		149D7D391F40037400753127 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149D7D381F40037400753127 /* Cocoa.framework */; };
 		149D7D3D1F40038100753127 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149D7D3C1F40038100753127 /* IOKit.framework */; };
@@ -28,6 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		140DB1AC1F599F9500BA7599 /* HelloTriangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloTriangle.cpp; sourceTree = "<group>"; };
+		140DB1AD1F599F9500BA7599 /* HelloTriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloTriangle.h; sourceTree = "<group>"; };
 		149D7D2D1F4002CE00753127 /* HelloTriangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HelloTriangle; sourceTree = BUILT_PRODUCTS_DIR; };
 		149D7D301F4002CE00753127 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		149D7D381F40037400753127 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -76,6 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				14F1CF4A1F48926900ECE044 /* glad.c */,
+				140DB1AD1F599F9500BA7599 /* HelloTriangle.h */,
+				140DB1AC1F599F9500BA7599 /* HelloTriangle.cpp */,
 				149D7D301F4002CE00753127 /* main.cpp */,
 			);
 			path = HelloTriangle;
@@ -153,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				149D7D311F4002CE00753127 /* main.cpp in Sources */,
+				140DB1AE1F599F9500BA7599 /* HelloTriangle.cpp in Sources */,
 				14F1CF4B1F48926900ECE044 /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,7 +258,7 @@
 		149D7D351F4002CE00753127 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = "/usr/local/include/**";
 				LIBRARY_SEARCH_PATHS = "/usr/local/lib/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -262,7 +268,7 @@
 		149D7D361F4002CE00753127 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = "/usr/local/include/**";
 				LIBRARY_SEARCH_PATHS = "/usr/local/lib/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
