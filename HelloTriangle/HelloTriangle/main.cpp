@@ -23,11 +23,6 @@ int main()
         return -1;
     }
     
-    if (RetError == initShaderProgram())
-    {
-        return -1;
-    }
-    
     // -------------------------- 画矩形 --------------------------
     // 定义 矩形顶点数据数组
     GLfloat vertices[] =

@@ -28,7 +28,7 @@ const GLchar *fragmentShaderSource = "#version 330 core\n"
     "out vec4 fragColor;\n"
     "void main()\n"
     "{\n"
-    "   fragColor = vec4(0.5, 0.8, 0.3, 1.0);\n"
+    "   fragColor = vec4(0.7f, 0.5f, 0.6f, 1.0f);\n"
     "}\0";
 
 int main ()
@@ -166,9 +166,8 @@ int main ()
 //    glBindVertexArray(0); // not really necessary as well, but beware of calls that could affect VAOs while this one is bound (like binding element buffer objects, or enabling/disabling vertex attributes)
 
     
-    
     // 画线框
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+//    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
     
     // 循环渲染

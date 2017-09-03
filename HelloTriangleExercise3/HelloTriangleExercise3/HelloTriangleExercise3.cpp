@@ -1,12 +1,12 @@
 //
-//  HelloTriangle.cpp
+//  HelloTriangleExercise3.cpp
 //  HelloTriangle
 //
 //  Created by shenyuanluo on 2017/9/1.
 //  Copyright © 2017年 http://blog.shenyuanluo.com/ All rights reserved.
 //
 
-#include "HelloTriangle.h"
+#include "HelloTriangleExercise3.h"
 
 
 // 日志缓冲大小
@@ -28,12 +28,21 @@ const GLchar *vertexShaderSource = "#version 330 core\n"
     "{\n"
     "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
     "}\n\0";
-// GLSL 创建 片段着色器源码
-const GLchar *fragmentShaderSource = "#version 330 core\n"
+
+// GLSL 创建 片段着色器源码(输出橘色色)
+const GLchar *fragmentShader1Source = "#version 330 core\n"
     "out vec4 FragColor;\n"
     "void main()\n"
     "{\n"
-    "   FragColor = vec4(0.7f, 0.5f, 0.6f, 1.0f);\n"
+    "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+    "}\n\0";
+
+// GLSL 创建 片段着色器源码(输出黄色)
+const GLchar *fragmentShader2Source = "#version 330 core\n"
+    "out vec4 FragColor;\n"
+    "void main()\n"
+    "{\n"
+    "   FragColor = vec4(1.0f, 1.0f, 0.0f, 1.0f);\n"
     "}\n\0";
 
 #pragma mark - 内部函数声明
@@ -200,37 +209,51 @@ GLuint shaderProgram(GLuint vertexShaderId, GLuint fragmentShaderId)
 }
 
 
-void render(GLFWwindow *window, GLfloat *vertexBuff, GLint buffLen)
+#pragma mark -- 循环渲染
+void render(GLFWwindow *window, GLfloat *vertexBuffYellow, GLint buffLenYellow, GLfloat *vertexBuffOrange, GLint buffLenOrange)
 {
     if (NULL == window
-        || NULL == vertexBuff || 0 >= buffLen)
+        || NULL == vertexBuffYellow || 0 >= buffLenYellow
+        || NULL == vertexBuffOrange || 0 >= buffLenOrange)
     {
         std::cout << "Render failure !" << std::endl;
         return ;
     }
-    GLuint vertexShaderId  = vertexShader(vertexShaderSource);
-    GLuint fragmentShaderId = fragmentShader(fragmentShaderSource);
-    GLuint shaderProgramId = shaderProgram(vertexShaderId, fragmentShaderId);
+    GLuint vertexShaderId         = vertexShader(vertexShaderSource);
+    GLuint fragmentShaderYellowId = fragmentShader(fragmentShader2Source);
+    GLuint fragmentShaderOrangeId = fragmentShader(fragmentShader1Source);
+    GLuint shaderProgramYellowId  = shaderProgram(vertexShaderId, fragmentShaderYellowId);
+    GLuint shaderProgramOrangeId  = shaderProgram(vertexShaderId, fragmentShaderOrangeId);
     if (0 == vertexShaderId
-        || 0 == fragmentShaderId
-        || 0 == shaderProgramId)
+        || 0 == fragmentShaderYellowId
+        || 0 == fragmentShaderOrangeId
+        || 0 == shaderProgramYellowId
+        || 0 == shaderProgramOrangeId)
     {
         return ;
     }
-    glUseProgram(shaderProgramId);
-    
-    GLuint VAO = vertexArrayObj();
-    
-    GLuint VBO = vertexBufferObj(vertexBuff, buffLen);
-    
+
+    GLuint VAO1 = vertexArrayObj();
+    GLuint VBO1 = vertexBufferObj(vertexBuffYellow, buffLenYellow);
     // 定义 索引缓存数据数据
-    GLuint indices[] =
+    GLuint indices1[] =
     {
-        0, 1, 2,                        // 第一个三角形（左上三角形）
-        1, 2, 3,                        // 第二个三角形（右下三角形）
+        0, 1, 2,
     };
-    GLuint EBO = elementBufferObj(indices, sizeof(indices));
+    GLuint EBO1 = elementBufferObj(indices1, sizeof(indices1));
+    glEnableVertexAttribArray(0);
     
+    GLuint VAO2 = vertexArrayObj();
+    GLuint VBO2 = vertexBufferObj(vertexBuffOrange, buffLenOrange);
+    // 定义 索引缓存数据数据
+    GLuint indices2[] =
+    {
+        0, 1, 2,
+    };
+    GLuint EBO2 = elementBufferObj(indices2, sizeof(indices2));
+    glEnableVertexAttribArray(0);
+
+
     // 如果想画线框，去掉下面的注释
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
@@ -244,11 +267,17 @@ void render(GLFWwindow *window, GLfloat *vertexBuff, GLint buffLen)
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);   // 状态设置函数
         glClear(GL_COLOR_BUFFER_BIT);           // 状态使用函数
         
-        // -------------------------- 开始画三角形 --------------------------
-        //
-        glBindVertexArray(VAO);
+        // -------------------------- 开始画第一个三角形 --------------------------
+        glUseProgram(shaderProgramYellowId);
+        glBindVertexArray(VAO1);
 //        glDrawArrays(GL_TRIANGLES, 0, 3);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void *)0);
+        glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, (void *)0);
+        
+        // -------------------------- 开始画第二个三角形 --------------------------
+        glUseProgram(shaderProgramOrangeId);
+        glBindVertexArray(VAO2);
+//        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, (void *)0);
         
         // 交换缓存
         glfwSwapBuffers(window);
@@ -257,9 +286,12 @@ void render(GLFWwindow *window, GLfloat *vertexBuff, GLint buffLen)
     }
     
     // 释放对象
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
-    glDeleteBuffers(1, &EBO);
+    glDeleteVertexArrays(1, &VAO1);
+    glDeleteVertexArrays(1, &VAO2);
+    glDeleteBuffers(1, &VBO1);
+    glDeleteBuffers(1, &VBO2);
+    glDeleteBuffers(1, &EBO1);
+    glDeleteBuffers(1, &EBO2);
 }
 
 
