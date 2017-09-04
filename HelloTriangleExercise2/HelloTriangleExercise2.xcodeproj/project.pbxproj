@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140FA2301F5D86CE00858DBD /* HelloTriangleExercise2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 140FA22E1F5D86CE00858DBD /* HelloTriangleExercise2.cpp */; };
 		147CF9821F505A4B00964F06 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 147CF9811F505A4B00964F06 /* main.cpp */; };
 		147CF9891F505A8A00964F06 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 147CF9881F505A8A00964F06 /* glad.c */; };
 		147CF98C1F505C8700964F06 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 147CF98B1F505C8700964F06 /* libglfw3.a */; };
@@ -28,6 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		140FA22E1F5D86CE00858DBD /* HelloTriangleExercise2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloTriangleExercise2.cpp; sourceTree = "<group>"; };
+		140FA22F1F5D86CE00858DBD /* HelloTriangleExercise2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloTriangleExercise2.h; sourceTree = "<group>"; };
 		147CF97E1F505A4B00964F06 /* HelloTriangleExercise2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HelloTriangleExercise2; sourceTree = BUILT_PRODUCTS_DIR; };
 		147CF9811F505A4B00964F06 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		147CF9881F505A8A00964F06 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				147CF9881F505A8A00964F06 /* glad.c */,
+				140FA22F1F5D86CE00858DBD /* HelloTriangleExercise2.h */,
+				140FA22E1F5D86CE00858DBD /* HelloTriangleExercise2.cpp */,
 				147CF9811F505A4B00964F06 /* main.cpp */,
 			);
 			path = HelloTriangleExercise2;
@@ -148,6 +153,7 @@
 			files = (
 				147CF9821F505A4B00964F06 /* main.cpp in Sources */,
 				147CF9891F505A8A00964F06 /* glad.c in Sources */,
+				140FA2301F5D86CE00858DBD /* HelloTriangleExercise2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +286,7 @@
 				147CF9871F505A4B00964F06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

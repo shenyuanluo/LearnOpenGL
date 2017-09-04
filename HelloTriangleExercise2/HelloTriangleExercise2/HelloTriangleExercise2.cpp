@@ -1,12 +1,12 @@
 //
-//  HelloTriangle.cpp
-//  HelloTriangle
+//  HelloTriangleExercise2.cpp
+//  HelloTriangleExercise2
 //
-//  Created by shenyuanluo on 2017/9/1.
+//  Created by shenyuanluo on 2017/9/4.
 //  Copyright © 2017年 http://blog.shenyuanluo.com/ All rights reserved.
 //
 
-#include "HelloTriangle.h"
+#include "HelloTriangleExercise2.h"
 
 
 // 日志缓冲大小
@@ -23,25 +23,25 @@ const GLchar *windowTitle = "Hello Triangle";
 
 // ---------------------- 创建顶点着色器 GLSL 源码 ----------------------
 const GLchar *vertexShaderSource = "#version 330 core\n"
-    "layout (location = 0) in vec3 aPos;\n"
-    "void main()\n"
-    "{\n"
-    "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-    "}\n\0";
+"layout (location = 0) in vec3 aPos;\n"
+"void main()\n"
+"{\n"
+"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+"}\n\0";
 
 // ---------------------- 创建片段着色器 GLSL 源码 ----------------------
 const GLchar *fragmentShaderSource = "#version 330 core\n"
-    "out vec4 FragColor;\n"
-    "void main()\n"
-    "{\n"
-    "   FragColor = vec4(0.7f, 0.5f, 0.6f, 1.0f);\n"
-    "}\n\0";
+"out vec4 FragColor;\n"
+"void main()\n"
+"{\n"
+"   FragColor = vec4(0.7f, 0.5f, 0.6f, 1.0f);\n"
+"}\n\0";
 
 #pragma mark - 内部函数声明
 
 /**
  GLFW window 大小改变回调
-
+ 
  @param window 窗体实例
  @param width 窗体宽度
  @param height 窗体高度
@@ -51,7 +51,7 @@ void framebufferSizeCallback(GLFWwindow *window, GLint width, GLint height);
 
 /**
  处理用户输入
-
+ 
  @param window 窗体实力
  */
 void processInput(GLFWwindow *window);
@@ -95,7 +95,7 @@ GLuint vertexBufferObj(GLfloat *vertexBuff, GLint buffLen);
 
 /**
  创建索引缓冲对象
-
+ 
  @param indicesBuff 顶点数组缓冲
  @param buffLen 顶点数组长度
  @return 成功，则返回索引缓冲对象 ID；失败，则返回 0
@@ -202,10 +202,11 @@ GLuint shaderProgram(GLuint vertexShaderId, GLuint fragmentShaderId)
 }
 
 
-void render(GLFWwindow *window, GLfloat *vertexBuff, GLint buffLen)
+void render(GLFWwindow *window, GLfloat *vertexBuff1, GLint buffLen1, GLfloat *vertexBuff2, GLint buffLen2)
 {
     if (NULL == window
-        || NULL == vertexBuff || 0 >= buffLen)
+        || NULL == vertexBuff1 || 0 >= buffLen1
+        || NULL == vertexBuff2 || 0 >= buffLen2)
     {
         std::cout << "Render failure !" << std::endl;
         return ;
@@ -221,17 +222,15 @@ void render(GLFWwindow *window, GLfloat *vertexBuff, GLint buffLen)
     }
     glUseProgram(shaderProgramId);
     
-    GLuint VAO = vertexArrayObj();
+    GLuint VAO1 = vertexArrayObj();
+    GLuint VBO1 = vertexBufferObj(vertexBuff1, buffLen1);
     
-    GLuint VBO = vertexBufferObj(vertexBuff, buffLen);
-    
-    // 定义 索引缓存数据数据
-    GLuint indices[] =
+    GLuint VAO2 = vertexArrayObj();
+    GLuint VBO2 = vertexBufferObj(vertexBuff2, buffLen2);
+    if (0 >= VBO1 || 0 >= VBO2)
     {
-        0, 1, 2,                        // 第一个三角形（左上三角形）
-        1, 2, 3,                        // 第二个三角形（右下三角形）
-    };
-    GLuint EBO = elementBufferObj(indices, sizeof(indices));
+        return;
+    }
     
     // 如果想画线框，去掉下面的注释
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -248,9 +247,11 @@ void render(GLFWwindow *window, GLfloat *vertexBuff, GLint buffLen)
         
         // -------------------------- 开始画三角形 --------------------------
         //
-        glBindVertexArray(VAO);
-//        glDrawArrays(GL_TRIANGLES, 0, 3);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void *)0);
+        glBindVertexArray(VAO1);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        
+        glBindVertexArray(VBO2);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
         
         // 交换缓存
         glfwSwapBuffers(window);
@@ -259,9 +260,10 @@ void render(GLFWwindow *window, GLfloat *vertexBuff, GLint buffLen)
     }
     
     // 释放对象
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
-    glDeleteBuffers(1, &EBO);
+    glDeleteVertexArrays(1, &VAO1);
+    glDeleteVertexArrays(1, &VAO2);
+    glDeleteBuffers(1, &VBO1);
+    glDeleteBuffers(1, &VBO2);
 }
 
 

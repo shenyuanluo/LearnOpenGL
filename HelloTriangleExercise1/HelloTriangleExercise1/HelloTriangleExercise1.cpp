@@ -1,12 +1,12 @@
 //
-//  HelloTriangle.cpp
-//  HelloTriangle
+//  HelloTriangleExercise1.c
+//  HelloTriangleExercise1
 //
-//  Created by shenyuanluo on 2017/9/1.
+//  Created by shenyuanluo on 2017/9/4.
 //  Copyright © 2017年 http://blog.shenyuanluo.com/ All rights reserved.
 //
 
-#include "HelloTriangle.h"
+#include "HelloTriangleExercise1.h"
 
 
 // 日志缓冲大小
@@ -225,43 +225,32 @@ void render(GLFWwindow *window, GLfloat *vertexBuff, GLint buffLen)
     
     GLuint VBO = vertexBufferObj(vertexBuff, buffLen);
     
-    // 定义 索引缓存数据数据
-    GLuint indices[] =
-    {
-        0, 1, 2,                        // 第一个三角形（左上三角形）
-        1, 2, 3,                        // 第二个三角形（右下三角形）
-    };
-    GLuint EBO = elementBufferObj(indices, sizeof(indices));
+    // 画线框
+    //    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
-    // 如果想画线框，去掉下面的注释
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-    
-    // 渲染循环
+    // 循环渲染
     while (!glfwWindowShouldClose(window))
     {
-        // 处理输入
         processInput(window);
         
-        //渲染
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);   // 状态设置函数
-        glClear(GL_COLOR_BUFFER_BIT);           // 状态使用函数
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);   // 设置颜色
+        glClear(GL_COLOR_BUFFER_BIT);           // 应用颜色
         
-        // -------------------------- 开始画三角形 --------------------------
-        //
+        // 激活着色器程序
+        glUseProgram(shaderProgramId);
+        glBindVertexArray(VAO);   // 最好试用期调用一次
+        
+        // 开始画图
         glBindVertexArray(VAO);
-//        glDrawArrays(GL_TRIANGLES, 0, 3);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void *)0);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
         
-        // 交换缓存
-        glfwSwapBuffers(window);
-        // 检查是否有事件（键盘输入或鼠标移动）更新窗体状态
-        glfwPollEvents();
+        glfwSwapBuffers(window);    // 交换缓存
+        glfwPollEvents();   // 检查是否有事件（键盘输入或鼠标移动）更新窗体状态
     }
     
     // 释放对象
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
-    glDeleteBuffers(1, &EBO);
 }
 
 

@@ -3,7 +3,7 @@
 //  HelloWindow
 //
 //  Created by shenyuanluo on 2017/8/10.
-//  Copyright © 2017年 http://blog.shenyuanluo.com/. All rights reserved.
+//  Copyright © 2017年 http://blog.shenyuanluo.com/ All rights reserved.
 //
 
 #include <glad/glad.h>

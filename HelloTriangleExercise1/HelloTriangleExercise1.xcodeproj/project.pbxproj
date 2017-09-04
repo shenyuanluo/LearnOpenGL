@@ -13,6 +13,7 @@
 		14B0C9E81F4B2FB700DE14B2 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 14B0C9E71F4B2FB700DE14B2 /* glad.c */; };
 		14B0C9EC1F4B3C3700DE14B2 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B0C9EB1F4B3C3700DE14B2 /* IOKit.framework */; };
 		14B0C9EE1F4B3C4400DE14B2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B0C9ED1F4B3C4400DE14B2 /* CoreVideo.framework */; };
+		14E015E61F5CCC6D003E5D7A /* HelloTriangleExercise1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14E015E41F5CCC6D003E5D7A /* HelloTriangleExercise1.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +37,8 @@
 		14B0C9E91F4B3C2300DE14B2 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		14B0C9EB1F4B3C3700DE14B2 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		14B0C9ED1F4B3C4400DE14B2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		14E015E41F5CCC6D003E5D7A /* HelloTriangleExercise1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloTriangleExercise1.cpp; sourceTree = "<group>"; };
+		14E015E51F5CCC6D003E5D7A /* HelloTriangleExercise1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloTriangleExercise1.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				14B0C9E71F4B2FB700DE14B2 /* glad.c */,
+				14E015E51F5CCC6D003E5D7A /* HelloTriangleExercise1.h */,
+				14E015E41F5CCC6D003E5D7A /* HelloTriangleExercise1.cpp */,
 				14B0C9DB1F4B2F2400DE14B2 /* main.cpp */,
 			);
 			path = HelloTriangleExercise1;
@@ -148,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14E015E61F5CCC6D003E5D7A /* HelloTriangleExercise1.cpp in Sources */,
 				14B0C9DC1F4B2F2400DE14B2 /* main.cpp in Sources */,
 				14B0C9E81F4B2FB700DE14B2 /* glad.c in Sources */,
 			);
@@ -284,6 +290,7 @@
 				14B0C9E11F4B2F2400DE14B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
