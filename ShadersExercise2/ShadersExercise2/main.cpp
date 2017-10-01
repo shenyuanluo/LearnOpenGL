@@ -28,9 +28,9 @@ int main()
     GLfloat vertices[] =
     {
         // 顶点位置               // 颜色
-        0.0f,  0.5f, 0.0f,     1.0f, 0.0f, 0.0f,           // 上顶点
+         0.0f,  0.5f, 0.0f,     1.0f, 0.0f, 0.0f,           // 上顶点
         -0.5f, -0.5f, 0.0f,     0.0f, 1.0f, 0.0f,           // 左下角 顶点
-        0.5f, -0.5f, 0.0f,     0.0f, 0.0f, 1.0f,           // 右下角 顶点
+         0.5f, -0.5f, 0.0f,     0.0f, 0.0f, 1.0f,           // 右下角 顶点
     };
     
     renView.render(vertices, sizeof(vertices));

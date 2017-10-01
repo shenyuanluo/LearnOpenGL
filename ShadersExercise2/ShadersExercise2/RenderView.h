@@ -3,7 +3,7 @@
 //  Shaders
 //
 //  Created by shenyuanluo on 2017/10/1.
-//  Copyright © 2017年 shenyuanluo. All rights reserved.
+//  Copyright © 2017年 http://blog.shenyuanluo.com/ All rights reserved.
 //
 
 #ifndef RenderView_h
