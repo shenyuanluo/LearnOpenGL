@@ -68,6 +68,24 @@ Shaders::~Shaders()
 }
 
 
+#pragma mark -- 设置 uniform 的值
+void Shaders::setBool(const std::string &name, bool value) const
+{
+    glUniform1i(glGetUniformLocation(this->shaderProgramId, name.c_str()), (GLint)value);
+}
+
+
+void Shaders::setInt(const std::string &name, GLint value) const
+{
+    glUniform1i(glGetUniformLocation(this->shaderProgramId, name.c_str()), value);
+}
+
+
+void Shaders::setFloat(const std::string &name, GLfloat value) const
+{
+    glUniform1f(glGetUniformLocation(this->shaderProgramId, name.c_str()), value);
+}
+
 #pragma mark -- 激活着色器程序
 void Shaders::use()
 {

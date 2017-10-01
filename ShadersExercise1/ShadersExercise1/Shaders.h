@@ -98,6 +98,18 @@ public:
      */
     ~Shaders();
     
+    /**
+     设置 uniform 的值
+
+     @param name uniform 变量-key
+     @param value uniform 变量-value
+     */
+    void setBool(const std::string &name, bool value) const;
+    
+    void setInt(const std::string &name, GLint value) const;
+    
+    void setFloat(const std::string &name, GLfloat value) const;
+    
     
     /**
      激活着色器程序
