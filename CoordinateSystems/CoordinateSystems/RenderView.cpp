@@ -79,21 +79,14 @@ GLuint RenderView:: createVBO(GLfloat* vertexBuff, GLuint buffLen)
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     // 拷贝顶点数据到顶点缓存对象ID引用的缓存中
     glBufferData(GL_ARRAY_BUFFER, buffLen, vertexBuff, GL_STATIC_DRAW);
-    // 设置顶点属性 （告诉 OpenGL 如何解释使用顶点数据）
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void *)0);
+    // 设置顶点（位置）属性 （告诉 OpenGL 如何解释使用顶点数据）
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)0);
     // 启动顶点属性
     glEnableVertexAttribArray(0);
-    
-    // 设置颜色属性
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void *)(3 * sizeof(GLfloat)));
-    // 启用颜色属性
-    glEnableVertexAttribArray(1);
-    
     // 设置纹理属性
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void *)( 6 * sizeof(GLfloat)));
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
     // 启用纹理属性
-    glEnableVertexAttribArray(2);
-    
+    glEnableVertexAttribArray(1);    
     
     return VBO;
 }
@@ -245,6 +238,9 @@ void RenderView::render(GLfloat* vertexBuff, GLuint buffLen)
         return ;
     }
     
+    // 设置全局的‘深度测试’可用
+    glEnable(GL_DEPTH_TEST);
+    
     // 定义 索引缓存数据数据
     GLuint indices[] =
     {
@@ -278,7 +274,7 @@ void RenderView::render(GLfloat* vertexBuff, GLuint buffLen)
         
         //渲染
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);   // 状态设置函数
-        glClear(GL_COLOR_BUFFER_BIT);           // 状态使用函数
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);     // 清除颜色和深度缓冲
         
         // -------------------------- 开始画三角形 --------------------------
         // 激活着色器程序
@@ -299,8 +295,8 @@ void RenderView::render(GLfloat* vertexBuff, GLuint buffLen)
         
         // 定义一个'模型'矩阵（默认是单位矩阵）
         glm::mat4 modelMat;
-        // 旋转 v(1.0f, 0.0f, 0.0f) 绕 ‘X’ 轴旋转
-        modelMat = glm::rotate(modelMat, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        // 旋转 v(0.5f, 1.0f, 0.0f) 
+        modelMat = glm::rotate(modelMat, (GLfloat)glfwGetTime() * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
         
         // 定义一个'观察'矩阵（默认是单位矩阵）
         glm::mat4 viewMat;
@@ -310,7 +306,7 @@ void RenderView::render(GLfloat* vertexBuff, GLuint buffLen)
         // 定义一个'投影'矩阵（默认是单位矩阵）
         glm::mat4 projectionMat;
         // 透视
-        projectionMat = glm::perspective(glm::radians(45.0f), (GLfloat)(getSCRWidth()/getSCRHeight()), 0.1f, 100.0f);
+        projectionMat = glm::perspective(glm::radians(45.0f), (GLfloat)getSCRWidth()/(GLfloat)getSCRHeight(), 0.1f, 100.0f);
         
         // 设定‘模型’矩阵的值
         customShader.setTrans("modelMat", glm::value_ptr(modelMat));
@@ -323,7 +319,8 @@ void RenderView::render(GLfloat* vertexBuff, GLuint buffLen)
 
         
         glBindVertexArray(VAO);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+//        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         
         // 交换缓存
         glfwSwapBuffers(window);
