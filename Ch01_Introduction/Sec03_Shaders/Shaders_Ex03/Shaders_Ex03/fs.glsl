@@ -1,0 +1,24 @@
+//
+//  fs.glsl
+//  Shaders_Ex03
+//
+//  Created by shenyuanluo on 2017/8/12.
+//  Copyright © 2017年 http://blog.shenyuanluo.com/ All rights reserved.
+//
+
+/*
+ 片段着色器
+ */
+
+
+#version 330 core   /* 指定GLSL版本3.3，匹配 OpenGL 版本 */
+
+
+in vec3 vertexPosition;    /* 输入，接收顶点位置，从顶点着色器传来的输入变量（名称相同、类型相同） */
+
+out vec4 FragColor;     /* 输出，指定片段颜色 */
+
+void main()
+{
+    FragColor = vec4(vertexPosition, 1.0f);
+}
