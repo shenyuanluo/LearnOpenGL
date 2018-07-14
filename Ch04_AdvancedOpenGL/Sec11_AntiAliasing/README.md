@@ -4,17 +4,17 @@
 
 
 ## 锯齿
-**Aliasing：**走样（又称为“锯齿”），是指在模型边缘有锯齿的现象，在图形渲染中很常见，如下图：
+**Aliasing：** 走样（又称为“锯齿”），是指在模型边缘有锯齿的现象，在图形渲染中很常见，如下图：
 
 ![图片来源于：learnopengl.com](AntiAliasingZoomed.png)
 
-**Anti-Aliasing：**反走样(常称“抗锯齿”)，是指要消除模型边缘锯齿的现象，让边缘看起来更加平滑，更真实。
+**Anti-Aliasing：** 反走样(常称“抗锯齿”)，是指要消除模型边缘锯齿的现象，让边缘看起来更加平滑，更真实。
 
 出现锯齿现象是不可避免，是因为渲染物体时，需要将物体模型具体的位置坐标值转换成屏幕某个像素的值；物体模型的顶点坐标是可以任意的，而屏幕的由于像素的限制，只能转换成一定的值。当绘制3D物体的时候，计算物体的边缘位置，如果这个位置把大半个像素包括进去了，显示器会将这个像素设置成3D物体的颜色，如果没有包一半以上，这个像素就会设置成背景色。
 
 
 ## 多重采样
-**光栅器：**是位于最终处理过的顶点之后到片段着色器之前所经过的所有的算法与过程的总和；作用是将一个图元的所有顶点作为输入，并将它转换为一系列的片段。
+**光栅器：** 是位于最终处理过的顶点之后到片段着色器之前所经过的所有的算法与过程的总和；作用是将一个图元的所有顶点作为输入，并将它转换为一系列的片段。
 
 在光栅化阶段中，顶点坐标可以是任意的，但是片段(像素)不是，受限于分辨率。所以，绝大多数情况下，顶点和片元不会是完美的一一对应关系，所以光栅化的过程会确定图元的边界位置。如下图：
 
@@ -48,7 +48,7 @@
 
 
 ## 启用 MSAA
-**多重采样缓冲(Multisample Buffer)：**可以在每个像素中存储特定数量(大于 `1` 个)的多重采样样本(例如，颜色值)缓冲。
+**多重采样缓冲(Multisample Buffer)：** 可以在每个像素中存储特定数量(大于 `1` 个)的多重采样样本(例如，颜色值)缓冲。
 
 - `GLFW` 开启多重采样缓冲：
 
@@ -73,12 +73,12 @@
 ### 多重采样纹理附件
 使用 `glTexImage2DMultisample(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height, GLboolean fixedsamplelocations);`  来创建一个支持储存多个采样点的纹理：
 
-- **target：**纹理类型 target。
-- **samples：**纹理所拥有的样本个数。
-- **internalformat：**纹理内部数据格式。
-- **width：**纹理宽度。
-- **height：**纹理高度。
-- **fixedsamplelocations：**是否对每个纹素使用相同的样本位置以及相同数量的子采样点个数。
+- **target：** 纹理类型 target。
+- **samples：** 纹理所拥有的样本个数。
+- **internalformat：** 纹理内部数据格式。
+- **width：** 纹理宽度。
+- **height：** 纹理高度。
+- **fixedsamplelocations：** 是否对每个纹素使用相同的样本位置以及相同数量的子采样点个数。
 
 ``` C
 GLuint attachTexture;
@@ -93,11 +93,11 @@ glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, 0);    // 解绑纹理（已经分配�
 ### 多重采样渲染缓冲对象附件
 使用 `glRenderbufferStorageMultisample(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height);` 创建一个支持存储多个采样点的渲染缓冲对象：
 
-- **target：**渲染缓冲对象类型 target。
-- **samples：**渲染缓冲对象所拥有的样本个数。
-- **internalformat：**渲染缓冲内部数据格式。
-- **width：**渲染缓冲宽度。
-- **height：**渲染缓冲高度。
+- **target：** 渲染缓冲对象类型 target。
+- **samples：** 渲染缓冲对象所拥有的样本个数。
+- **internalformat：** 渲染缓冲内部数据格式。
+- **width：** 渲染缓冲宽度。
+- **height：** 渲染缓冲高度。
 
 ``` C
 /* 创建帧缓冲·(多重采样)渲染缓冲对象附件，并将其作为深度(和模板)缓冲添加到帧缓冲上 */
