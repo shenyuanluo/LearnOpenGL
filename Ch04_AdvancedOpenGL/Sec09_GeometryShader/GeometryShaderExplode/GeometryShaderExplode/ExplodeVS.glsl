@@ -16,7 +16,7 @@
 
 layout (location = 0) in vec3 aPos;         /* 顶点位置变量的属性位置值为：0 */
 layout (location = 1) in vec3 aNormal;      /* 顶点‘法向量’的属性位置为：1 */
-layout (location = 2) in vec2 aTexCoords;   /* 顶点‘纹理坐标’的属性位置为：1 */
+layout (location = 2) in vec2 aTexCoords;   /* 顶点‘纹理坐标’的属性位置为：2 */
 
 /* 输出接口块 */
 out VS_OUT {

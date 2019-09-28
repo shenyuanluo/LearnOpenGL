@@ -164,7 +164,7 @@ public:
      绑定 Uniform-Block 到指定的绑定点
 
      @param name uniform-block 变量-key
-     @param bindingPoint 绑定点：1, 2, 3, ··· , n
+     @param bindingPoint 绑定点：0, 1, 2, 3, ··· , n
      */
     void setUniformBlockToPoint(const std::string &name, GLuint bindingPoint);
     

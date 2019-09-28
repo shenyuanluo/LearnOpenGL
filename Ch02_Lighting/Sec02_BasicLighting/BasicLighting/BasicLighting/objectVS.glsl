@@ -14,7 +14,7 @@
 #version 330 core       /* 指定GLSL版本3.3，匹配 OpenGL 版本 */
 
 layout (location = 0) in vec3 aPos;     /* 顶点位置变量的属性位置值为：0 */
-layout (location = 1) in vec3 aNormal;  /* 顶点‘法向量’的属性位置为：0 */
+layout (location = 1) in vec3 aNormal;  /* 顶点‘法向量’的属性位置为：1 */
 
 out vec3 FragPos;       /* 输出，片段位置向量 */
 out vec3 Normal;        /* 输出，法向量传递给片段着色器 */
