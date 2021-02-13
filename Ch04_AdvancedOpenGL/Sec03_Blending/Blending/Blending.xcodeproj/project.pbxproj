@@ -12,7 +12,6 @@
 		143F9E7C209DED4500947BCC /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143F9E7B209DED4500947BCC /* CoreVideo.framework */; };
 		143F9E7E209DED4800947BCC /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143F9E7D209DED4800947BCC /* IOKit.framework */; };
 		143F9E80209DED4D00947BCC /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143F9E7F209DED4D00947BCC /* OpenGL.framework */; };
-		143F9E82209DEDAE00947BCC /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 143F9E81209DEDAE00947BCC /* libassimp.4.1.0.dylib */; };
 		143F9EC8209DEDF600947BCC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 143F9E88209DEDF500947BCC /* main.cpp */; };
 		143F9ECE209DEDF600947BCC /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 143F9EBD209DEDF600947BCC /* Window.cpp */; };
 		149B24D320F2F74F00E7A12C /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 149B24B520F2F74F00E7A12C /* Camera.cpp */; };
@@ -42,7 +41,6 @@
 		143F9E7B209DED4500947BCC /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		143F9E7D209DED4800947BCC /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		143F9E7F209DED4D00947BCC /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		143F9E81209DEDAE00947BCC /* libassimp.4.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.1.0.dylib; path = ../../../../../../../../usr/local/lib/libassimp.4.1.0.dylib; sourceTree = "<group>"; };
 		143F9E88209DEDF500947BCC /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		143F9EB8209DEDF500947BCC /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
 		143F9EBD209DEDF600947BCC /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 				143F9E7E209DED4800947BCC /* IOKit.framework in Frameworks */,
 				143F9E7C209DED4500947BCC /* CoreVideo.framework in Frameworks */,
 				143F9E7A209DED4000947BCC /* Cocoa.framework in Frameworks */,
-				143F9E82209DEDAE00947BCC /* libassimp.4.1.0.dylib in Frameworks */,
 				143F9E78209DED3C00947BCC /* libglfw3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,7 +109,6 @@
 		143F9E76209DED3C00947BCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				143F9E81209DEDAE00947BCC /* libassimp.4.1.0.dylib */,
 				143F9E7F209DED4D00947BCC /* OpenGL.framework */,
 				143F9E7D209DED4800947BCC /* IOKit.framework */,
 				143F9E7B209DED4500947BCC /* CoreVideo.framework */,
@@ -392,7 +388,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
-					"~/GLM_Source/glm/**",
+					"/Users/shenyuanluo/GLM_Source/glm/**",
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -405,7 +401,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
-					"~/GLM_Source/glm/**",
+					"/Users/shenyuanluo/GLM_Source/glm/**",
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";

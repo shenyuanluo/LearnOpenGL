@@ -58,7 +58,7 @@ void main()
     vec3 viewDir    = normalize(viewerPos - FragPos);
     vec3 reflectDir = reflect(-lightDir, norm);
     float spec      = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
-    //                                           反转镜面高光颜色：白变黑、黑变白
+    // 反转镜面高光颜色：白变黑、黑变白
     vec3 specular   = light.specular * (spec * (vec3(1.0) - vec3(texture(material.specular, TexCoords))));
     
     /* 最终颜色 */

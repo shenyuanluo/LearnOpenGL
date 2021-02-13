@@ -241,12 +241,12 @@ GLuint Window::createVBO(GLfloat* vertexBuff, GLuint buffLen)
     glBufferData(GL_ARRAY_BUFFER, buffLen, vertexBuff, GL_STATIC_DRAW);
     /* 设置顶点属性 （告诉 OpenGL 如何解释使用顶点数据） */
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)0);
-    /* 启用顶点属性 */
+    /* 启用顶点‘位置’属性 */
     glEnableVertexAttribArray(0);
     
     /* 设置颜色属性 （告诉 OpenGL 如何解释使用颜色数据） */
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
-    /* 启用颜色属性 */
+    /* 启用顶点‘颜色’属性 */
     glEnableVertexAttribArray(1);
     
     return VBO;

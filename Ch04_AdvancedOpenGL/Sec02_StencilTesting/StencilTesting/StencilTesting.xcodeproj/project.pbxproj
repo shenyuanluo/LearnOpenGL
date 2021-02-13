@@ -15,7 +15,6 @@
 		149B245020F2F36400E7A12C /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 149B242320F2F36400E7A12C /* Transform.cpp */; };
 		14B9EE68209C9F0C0051192E /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B9EE35209C9F0B0051192E /* Window.cpp */; };
 		14B9EE69209C9F0C0051192E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B9EE39209C9F0B0051192E /* main.cpp */; };
-		14B9EE78209C9FF40051192E /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B9EE76209C9FF40051192E /* libassimp.4.1.0.dylib */; };
 		14B9EE79209C9FF40051192E /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B9EE77209C9FF40051192E /* libglfw3.a */; };
 		14B9EE7B209C9FF90051192E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B9EE7A209C9FF90051192E /* Cocoa.framework */; };
 		14B9EE7D209C9FFC0051192E /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B9EE7C209C9FFC0051192E /* CoreVideo.framework */; };
@@ -55,7 +54,6 @@
 		14B9EE35209C9F0B0051192E /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
 		14B9EE39209C9F0B0051192E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		14B9EE3E209C9F0C0051192E /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
-		14B9EE76209C9FF40051192E /* libassimp.4.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.1.0.dylib; path = ../../../../../../../../usr/local/lib/libassimp.4.1.0.dylib; sourceTree = "<group>"; };
 		14B9EE77209C9FF40051192E /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../../../../../usr/local/lib/libglfw3.a; sourceTree = "<group>"; };
 		14B9EE7A209C9FF90051192E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		14B9EE7C209C9FFC0051192E /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -72,7 +70,6 @@
 				14B9EE7F209CA0000051192E /* IOKit.framework in Frameworks */,
 				14B9EE7D209C9FFC0051192E /* CoreVideo.framework in Frameworks */,
 				14B9EE7B209C9FF90051192E /* Cocoa.framework in Frameworks */,
-				14B9EE78209C9FF40051192E /* libassimp.4.1.0.dylib in Frameworks */,
 				14B9EE79209C9FF40051192E /* libglfw3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,7 +191,6 @@
 				14B9EE7E209CA0000051192E /* IOKit.framework */,
 				14B9EE7C209C9FFC0051192E /* CoreVideo.framework */,
 				14B9EE7A209C9FF90051192E /* Cocoa.framework */,
-				14B9EE76209C9FF40051192E /* libassimp.4.1.0.dylib */,
 				14B9EE77209C9FF40051192E /* libglfw3.a */,
 			);
 			name = Frameworks;
@@ -385,7 +381,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
-					"~/GLM_Source/glm/**",
+					"/Users/shenyuanluo/GLM_Source/glm/**",
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -398,7 +394,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
-					"~/GLM_Source/glm/**",
+					"/Users/shenyuanluo/GLM_Source/glm/**",
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";

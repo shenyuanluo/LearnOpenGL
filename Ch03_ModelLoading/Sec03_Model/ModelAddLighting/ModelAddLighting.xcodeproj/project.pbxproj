@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		143C45EA209A0F190046BD3C /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 143C45D4209A0F180046BD3C /* Window.cpp */; };
 		143C45EB209A0F190046BD3C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 143C45D5209A0F180046BD3C /* main.cpp */; };
-		143C45F3209A0FF90046BD3C /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 143C45F1209A0FF90046BD3C /* libassimp.4.1.0.dylib */; };
 		143C45F4209A0FF90046BD3C /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 143C45F2209A0FF90046BD3C /* libglfw3.a */; };
 		143C45F6209A0FFE0046BD3C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143C45F5209A0FFE0046BD3C /* Cocoa.framework */; };
 		143C45F8209A10030046BD3C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143C45F7209A10030046BD3C /* CoreVideo.framework */; };
 		143C45FA209A10070046BD3C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143C45F9209A10070046BD3C /* IOKit.framework */; };
 		143C45FC209A100B0046BD3C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143C45FB209A100B0046BD3C /* OpenGL.framework */; };
+		1483EC2225D81237004BD804 /* libassimp.5.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1483EC2125D81237004BD804 /* libassimp.5.0.1.dylib */; };
 		14E5E23220F26D230087A51D /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14E5E1F220F26D230087A51D /* Mesh.cpp */; };
 		14E5E23420F26D230087A51D /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14E5E1F820F26D230087A51D /* Camera.cpp */; };
 		14E5E23520F26D230087A51D /* GLErrorCheck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14E5E1FB20F26D230087A51D /* GLErrorCheck.cpp */; };
@@ -45,12 +45,12 @@
 		143C45D4209A0F180046BD3C /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
 		143C45D5209A0F180046BD3C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		143C45E1209A0F180046BD3C /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
-		143C45F1209A0FF90046BD3C /* libassimp.4.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.1.0.dylib; path = ../../../../../../../../usr/local/lib/libassimp.4.1.0.dylib; sourceTree = "<group>"; };
 		143C45F2209A0FF90046BD3C /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../../../../../usr/local/lib/libglfw3.a; sourceTree = "<group>"; };
 		143C45F5209A0FFE0046BD3C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		143C45F7209A10030046BD3C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		143C45F9209A10070046BD3C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		143C45FB209A100B0046BD3C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		1483EC2125D81237004BD804 /* libassimp.5.0.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.5.0.1.dylib; path = ../../../../../../../../usr/local/lib/libassimp.5.0.1.dylib; sourceTree = "<group>"; };
 		14E5E1EC20F26D190087A51D /* NanosuitVS.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NanosuitVS.glsl; sourceTree = "<group>"; };
 		14E5E1EE20F26D190087A51D /* NanosuitFS.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NanosuitFS.glsl; sourceTree = "<group>"; };
 		14E5E1F220F26D230087A51D /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
@@ -84,9 +84,9 @@
 			files = (
 				143C45FC209A100B0046BD3C /* OpenGL.framework in Frameworks */,
 				143C45FA209A10070046BD3C /* IOKit.framework in Frameworks */,
+				1483EC2225D81237004BD804 /* libassimp.5.0.1.dylib in Frameworks */,
 				143C45F8209A10030046BD3C /* CoreVideo.framework in Frameworks */,
 				143C45F6209A0FFE0046BD3C /* Cocoa.framework in Frameworks */,
-				143C45F3209A0FF90046BD3C /* libassimp.4.1.0.dylib in Frameworks */,
 				143C45F4209A0FF90046BD3C /* libglfw3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,11 +127,11 @@
 		143C45F0209A0FF90046BD3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1483EC2125D81237004BD804 /* libassimp.5.0.1.dylib */,
 				143C45FB209A100B0046BD3C /* OpenGL.framework */,
 				143C45F9209A10070046BD3C /* IOKit.framework */,
 				143C45F7209A10030046BD3C /* CoreVideo.framework */,
 				143C45F5209A0FFE0046BD3C /* Cocoa.framework */,
-				143C45F1209A0FF90046BD3C /* libassimp.4.1.0.dylib */,
 				143C45F2209A0FF90046BD3C /* libglfw3.a */,
 			);
 			name = Frameworks;
@@ -437,7 +437,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
-					"~/GLM_Source/glm/**",
+					"/Users/shenyuanluo/GLM_Source/glm/**",
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -450,7 +450,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
-					"~/GLM_Source/glm/**",
+					"/Users/shenyuanluo/GLM_Source/glm/**",
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";

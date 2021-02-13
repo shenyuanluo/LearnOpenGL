@@ -60,7 +60,7 @@ void Window::render(GLfloat* vertexBuff, GLuint buffLen)
     GLuint indices[] =
     {
         0, 1, 2,
-        1, 2, 3
+        0, 2, 3
     };
     /* 设置顶点 */
     GLuint VAO;     /* 声明引用 顶点数组对象 ID （可包含：VBO，EBO，VertexAttribPointer ） */
@@ -90,8 +90,8 @@ void Window::render(GLfloat* vertexBuff, GLuint buffLen)
         glBindVertexArray(VAO);
         
         /* 开始绘制 */
-//        glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(GLuint), GL_UNSIGNED_INT, (void *)0);
-        glDrawArrays(GL_LINE_LOOP, 0, 4);
+        glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(GLuint), GL_UNSIGNED_INT, (void *)0);
+//        glDrawArrays(GL_LINE_LOOP, 0, 4);
         
         
         /* 交换缓存 */

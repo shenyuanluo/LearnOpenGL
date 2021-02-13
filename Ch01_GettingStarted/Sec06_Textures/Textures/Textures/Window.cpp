@@ -109,7 +109,6 @@ void Window::render(GLfloat* vertexBuff, GLuint buffLen)
         /* 开始绘制 */
         glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(GLuint), GL_UNSIGNED_INT, (void *)0);
         
-        
         /* 交换缓存 */
         glfwSwapBuffers(m_window);
         
