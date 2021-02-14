@@ -418,7 +418,7 @@ GLuint Window::createFramebuffer(GLuint* attachTexture, GLuint* attachRBO)
     /* 2. 创建帧缓冲·纹理附件，并将其作为'颜色缓冲'添加到帧缓冲上 */
     glGenTextures(1, attachTexture);    // 生成纹理
     glBindTexture(GL_TEXTURE_2D, *attachTexture);    // 绑定纹理
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, m_width, m_height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);   // 创建纹理图像（注意：暂时没有填充图像数据）
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, m_width * 2, m_height * 2, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);   // 创建纹理图像（注意：暂时没有填充图像数据；MacOS 因为 Retina 需要乘以 2）
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);   // 设置纹理缩小过滤方式：线性过滤
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);   // 设置纹理放大过滤方式：线性过滤
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, *attachTexture, 0);   // 将纹理附件添加到帧缓冲上
@@ -427,7 +427,7 @@ GLuint Window::createFramebuffer(GLuint* attachTexture, GLuint* attachRBO)
     /* 3. 创建帧缓冲·渲染缓冲对象附件，并将其作为深度(和模板)缓冲添加到帧缓冲上 */
     glGenRenderbuffers(1, attachRBO);    // 生成渲染缓冲对象
     glBindRenderbuffer(GL_RENDERBUFFER, *attachRBO);   // 绑定渲染缓冲对象
-    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, m_width, m_height);  // 创建渲染缓冲对象
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, m_width * 2, m_height * 2);  // 创建渲染缓冲对象（MacOS 因为 Retina 需要乘以 2）
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, *attachRBO);   // 将渲染缓冲附件添加到帧缓冲上
     glBindRenderbuffer(GL_RENDERBUFFER, 0); // 已经分配足够内存的渲染缓冲对象附件，可以将其解绑
     
